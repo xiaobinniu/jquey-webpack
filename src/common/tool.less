@@ -1,0 +1,24 @@
+@primary: #a3826b;
+@primary_d:#C79F62;
+@primary_bg: rgba(199, 159, 98, 0.6);
+@primary_bg_s: #d9bf97;
+@background: #FFF;
+
+@vw:1/12rem;
+
+.english(){
+  font-family: Helvetica,Arial, Microsoft YaHei, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, SimSun, sans-serif;
+}
+
+.ellipsis(){
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.ellipsis_n(@n){
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @n;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}

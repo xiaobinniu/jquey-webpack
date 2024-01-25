@@ -1,0 +1,298 @@
+@import "./tool.less";
+
+.color_primary {
+  color: @primary;
+}
+
+.background_primary {
+  background: @primary;
+}
+
+* {
+  &::-webkit-scrollbar { /*滚动条整体样式*/
+    width: 5px; /*高宽分别对应横竖滚动条的尺寸*/
+    height: 13px;
+  }
+
+  &::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+    border-radius: 13px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: @primary;
+  }
+
+  &::-webkit-scrollbar-track { /*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 13px;
+    background: #EDEDED;
+  }
+}
+
+input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, .8);
+}
+
+input:-moz-placeholder {
+  color: rgba(255, 255, 255, .8);
+}
+
+input::-moz-placeholder {
+  color: rgba(255, 255, 255, .8);
+}
+
+input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, .8);
+}
+
+html {
+  background: @background;
+}
+
+#app {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: @background;
+  color: #fff;
+}
+
+main {
+  //overflow: hidden;
+  background: @background;
+}
+
+.main_width {
+  width: 1150*@vw;
+  margin: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.tool_toastk {
+  @vw: 1px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0 28*@vw;
+  position: fixed;
+  z-index: 100;
+  border-radius: 6*@vw;
+  top: 60*@vw;
+  //top:50%;
+  left: 50%;
+  transform: translateX(-50%);
+  //transform: translateX(-50%) translateY(-50%);
+  margin: auto;
+  height: 44*@vw;
+  line-height: 44*@vw;
+  color: #fff;
+
+  &.tool_err_toast {
+    background: rgba(222, 49, 81, 0.78);
+  }
+
+  &.tool_succ_toast {
+    background: rgba(20, 19, 19, 0.78);
+  }
+
+  .tool_toast_text {
+    font-size: 14*@vw;
+    line-height: 1.2;
+  }
+}
+
+.tool_confimk {
+  @vw: 1px;
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+
+  .tool_confim_mould {
+    position: fixed;
+    z-index: 100;
+    border-radius: 6*@vw;
+    background: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    margin: auto;
+    width: 300*@vw;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
+
+    .tool_confim_text {
+      font-size: 16*@vw;
+      padding: 38*@vw 18*@vw 31*@vw;
+      text-align: center;
+      letter-spacing: 0.5px;
+      color: #666;
+    }
+
+    .tool_confim_btns {
+      border-top: 1px solid #e2e2e2;
+      display: flex;
+      height: 50*@vw;
+      line-height: 50*@vw;
+
+      .tool_confim_btn {
+        flex: 1;
+        width: 50%;
+        cursor: pointer;
+        font-size: 16*@vw;
+        text-align: center;
+
+        &.tool_confim_btn_cancel {
+          color: #666;
+        }
+
+        &.tool_confim_btn_submit {
+          border-left: 1px solid #e2e2e2;
+          color: @primary;
+        }
+      }
+    }
+  }
+}
+
+.tool_loading {
+  @vw: 1px;
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .4);
+  @keyframes load_rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .tool_loading_img {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 52*@vw;
+    height: 52*@vw;
+    transform-origin: center center;
+    animation: load_rotate 1s infinite linear;
+  }
+
+  .tool_loading_text {
+    position: fixed;
+    z-index: 100;
+    top: (52*2+10)*@vw;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+    height: 50*@vw;
+    color: #fff;
+  }
+}
+
+
+.inputk {
+  @vw: 1px;
+
+  .input_label {
+    font-size: 14*@vw;
+    padding-bottom: 7*@vw;
+  }
+
+  .input_box {
+    position: relative;
+
+    .input {
+      width: 100%;
+      height: 42*@vw;
+      padding: 0 22*@vw 0 15*@vw;
+      background: transparent;
+      border: 1px solid #f2f2f2;
+      font-size: 14*@vw;
+      border-radius: 6*@vw;
+      color: #fff;
+
+      &:focus {
+        border: 1px solid #fff;
+      }
+
+      //&.input_phone{
+      //  padding-left: 73*@vw;
+      //}
+    }
+
+    .input_phonearea {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: flex;
+      align-items: center;
+      padding-left: 15*@vw;
+      font-size: 14*@vw;
+      cursor: pointer;
+      height: 52*@vw;
+      line-height: 52*@vw;
+
+      .input_phonearea_icon {
+        width: 12*@vw;
+        margin-left: 4*@vw;
+      }
+    }
+
+    .input_getcode {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 41*@vw;
+      line-height: 41*@vw;
+      padding-right: 15*@vw;
+      font-size: 14*@vw;
+      cursor: pointer;
+      transition: all .1s linear;
+
+      &.disabled {
+        //color: #ccc;
+      }
+
+      //&:hover{
+      //  color: @primary;
+      //}
+    }
+
+    .textarea {
+      width: 100%;
+      height: 170*@vw;
+      font-size: 14*@vw;
+      color: #fff;
+      border-radius: 6*@vw;
+      background: transparent;
+      resize: none;
+      border: 1px solid #3E3E3E;
+      padding: 13*@vw 15*@vw;
+      line-height: 1.4;
+    }
+
+    .textarea_num {
+      position: absolute;
+      right: 10*@vw;
+      bottom: 10*@vw;
+      font-size: 12*@vw;
+      color: #6F6F6F;
+    }
+  }
+}

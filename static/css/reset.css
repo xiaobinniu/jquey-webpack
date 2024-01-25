@@ -1,0 +1,36 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-weight: normal;
+}
+
+body {
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+ul,li,p{
+  margin:0;
+}
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+button{
+  background: transparent;
+  color: #fff;
+}
